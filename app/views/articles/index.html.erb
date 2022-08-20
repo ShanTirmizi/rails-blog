@@ -1,0 +1,19 @@
+<h1>Articles</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+<% @articles.map do |article|%>
+  <tr>
+    <td><%= article.title %></td>
+    <td><%= article.description %></td>
+    <td> <%= link_to 'Show', article %> </td>
+    <td>Edit </td>
+    <td>Delete</td>
+  </tr>
+<% end %>
+</table>
