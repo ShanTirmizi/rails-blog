@@ -35,11 +35,20 @@ class ArticlesController < ApplicationController
       render 'edit'
     end
   end
-  
+
+  # def destroy
+  #   @article = Article.find(params[:id])
+  #   @article.destroy
+  #   redirect_to articles_path
+  # end
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to articles_path
+
+    respond_to do |format|
+      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
 
