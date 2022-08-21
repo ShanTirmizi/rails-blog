@@ -4,6 +4,8 @@
 </p>
 <p>Title: <%= @article.title %></p>
 <p>Description: <%= @article.description %></p>
+<p><%= @article.user.username %></p>
+
 <p>
   <%= link_to 'Edit', edit_article_path(@article) %>
   <%= button_to 'Delete', @article, method: :delete %>
