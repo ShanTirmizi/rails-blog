@@ -1,13 +1,13 @@
-# create a articles controller 
+# create a articles controller
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: %i[show edit update destroy]
 
-  def index 
+  def index
     @articles = Article.all
   end
 
   def show
-  end 
+  end
 
   def new
     @article = Article.new
@@ -20,19 +20,19 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article was successfully created"
       redirect_to @article
     else
-      render 'new'
+      render "new"
     end
   end
- 
+
   def edit
   end
-  
+
   def update
     if @article.update(article_params)
       flash[:notice] = "Article was successfully updated"
       redirect_to @article
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -45,17 +45,20 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.html do
+        redirect_to articles_url, notice: "Article was successfully destroyed."
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title, :description)
-    end
-    
-    def set_article
-      @article = Article.find(params[:id])
-    end
-end 
+
+  def article_params
+    params.require(:article).permit(:title, :description)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
+end
