@@ -12,6 +12,6 @@
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit(@user.new_record? ? "Sign up" : "Edit user") %>
   </p>
 <% end %>
