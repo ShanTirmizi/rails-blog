@@ -8,6 +8,7 @@
     <th>Edit</th>
     <th>Delete</th>
   </tr>
+<%= will_paginate @articles %>
 <% @articles.map do |article|%>
   <tr>
     <td><%= article.title %></td>

@@ -1,0 +1,9 @@
+<h1>Users Index</h1>
+
+<% @users.each do |user| %>
+  <%= user.username %>
+  <%= user.articles.length %>
+  <%= link_to 'Show', user %>
+  <%= link_to 'Edit', edit_user_path(user) %>
+  <br />
+<% end %>
