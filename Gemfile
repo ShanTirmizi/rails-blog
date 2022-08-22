@@ -47,7 +47,9 @@ gem "bootsnap", require: false
 gem "prettier"
 
 gem "byebug"
+gem 'will_paginate', '~> 3.3'
 
+gem 'rubocop', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
