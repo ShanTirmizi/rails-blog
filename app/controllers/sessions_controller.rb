@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "You have successfully logged in"
       redirect_to user_path(user)
     else
-      flash.now[:errors] = 'Invalid email/password combination'
+      flash.now[:errors] = "Invalid email/password combination"
       render :new, status: :not_found
     end
   end
