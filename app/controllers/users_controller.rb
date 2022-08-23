@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update show]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update]
+
   def show
     @articles = @user.articles
   end
@@ -42,5 +45,12 @@ class UsersController < ApplicationController
   end
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:error] = "You can only edit or delete your own articles"
+      redirect_to user_path(current_user)
+    end
   end
 end

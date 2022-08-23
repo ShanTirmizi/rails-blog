@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
-    #@articles = Article.all
     @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
@@ -38,11 +37,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # def destroy
-  #
-  #   @article.destroy
-  #   redirect_to articles_path
-  # end
   def destroy
     @article.destroy
 
