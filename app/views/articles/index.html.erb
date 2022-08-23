@@ -1,5 +1,7 @@
 <h1>Articles</h1>
-<%= current_user.username %>
+<% if logged_in? %>
+  <%= current_user.username %>
+<% end %>
 <table>
   <tr>
     <th>Title</th>
