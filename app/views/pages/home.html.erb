@@ -1,4 +1,8 @@
 <h1>Home page</h1>
 <%= link_to 'Sign up', signup_path %>
-<%= link_to 'Login', login_path %>
-<%= link_to 'Logout', logout_path, method: :delete %>
+<% if logged_in? %>
+  <%= link_to 'logout', logout_path, method: :delete %>
+  <%= current_user.username %>
+<% else %>
+  <%= link_to 'login', login_path %>
+<% end %>
