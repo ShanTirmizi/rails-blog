@@ -5,7 +5,7 @@
 <p>Title: <%= @article.title %></p>
 <p>Description: <%= @article.description %></p>
 <p><%= @article.user.username %></p>
-<% if logged_in? && @article.user == current_user  %>
+<% if logged_in? && (@article.user == current_user || current_user.admin?)  %>
   <p>
     <%= link_to 'Edit', edit_article_path(@article) %>
     <%= button_to 'Delete', @article, method: :delete %>

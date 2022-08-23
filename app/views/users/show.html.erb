@@ -1,7 +1,6 @@
 <h1><%= @user.username %></h1>
-
+<p><%= 'Admin' if @user.admin? %></p>
 <%= gravatar_for @user %>
-
 <% @articles.each do |a| %>
   <h2><%= a.title %></h2>
   <%= a.description %>
