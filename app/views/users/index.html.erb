@@ -4,7 +4,7 @@
   <%= user.username %>
   <%= user.articles.length %>
   <%= link_to 'Show', user %>
-  <% if logged_in? && user == current_user %>
+  <% if logged_in? && (user == current_user || current_user.admin?)  %>
     <%= link_to 'Edit', edit_user_path(user) %>
      <%= link_to 'Delete', user_path(current_user),
   data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
