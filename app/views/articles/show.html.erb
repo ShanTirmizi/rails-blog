@@ -2,6 +2,9 @@
 <p>
   <%= link_to 'Back', articles_path %>
 </p>
+<% if @article.categories.any? %>
+  <%= render @article.categories %>
+<% end %>
 <p>Title: <%= @article.title %></p>
 <p>Description: <%= @article.description %></p>
 <p><%= @article.user.username %></p>
