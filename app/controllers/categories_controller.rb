@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
   def new
-    @category = Category.new
+    @category = Category.new    
   end
   def create
     @category = Category.new(category_params)
